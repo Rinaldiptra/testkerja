@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,8 @@ Route::get('/', function () {
 Route::get('/navbar', function () {
     return view('navbar');
 });
-
+Route::resource('/employ', 'employController');
+Route::resource('/company', 'companyController');
 Route::resource('/merek', 'merekController');
 Route::resource('/distributor', 'distributorController');
 Route::resource('/barang', 'barangController');

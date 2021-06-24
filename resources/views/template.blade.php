@@ -142,13 +142,15 @@
                             <li class="has-submenu ">
                                 <a href="#"><i class="mdi mdi-layers"></i>Components</a>
                                 <ul class="submenu">
-                                    <li><a href="http://127.0.0.1:8000/merek">Brand</a></li>
+                                    <li><a href="http://127.0.0.1:8000/company">Company</a></li>
+                                    <li><a href="http://127.0.0.1:8000/employ">Employ</a></li>
+                                    {{-- <li><a href="http://127.0.0.1:8000/merek">Brand</a></li>
                                     <li><a href="http://127.0.0.1:8000/barang">Item</a></li>
-                                    <li><a href="http://127.0.0.1:8000/distributor">Distributor</a></li>
+                                    <li><a href="http://127.0.0.1:8000/distributor">Distributor</a></li> --}}
                                 </ul>
                             </li>
 
-                            <li class="has-submenu">
+                            {{-- <li class="has-submenu">
                                 <a href="#"><i class="mdi mdi-animation"></i>Report</a>
                                 <ul class="submenu megamenu">
                                     <li>
@@ -158,13 +160,13 @@
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
 
-                            <li class="has-submenu">
+                            {{-- <li class="has-submenu">
                                 
                                 <a href="http://127.0.0.1:8000/transaksi"><i class="mdi ion-cash"></i>Transaction</a>
                                
-                            </li>
+                            </li> --}}
 
                           
                         

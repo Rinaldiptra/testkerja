@@ -12,10 +12,10 @@
                             <div class="btn-group pull-right">
                                 <ol class="breadcrumb hide-phone p-0 m-0">
                                     <li class="breadcrumb-item"><a href="#">Component</a></li>
-                                    <li class="breadcrumb-item active">Distributors</li>
+                                    <li class="breadcrumb-item active">Employs</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Distributors</h4>
+                            <h4 class="page-title">Employs</h4>
                         </div>
                     </div>
                 </div>
@@ -37,20 +37,36 @@
             </button>
           </div>
           <div class="modal-body">
-          <form action="{{ route('distributor.store') }}" method="POST">
+          <form action="{{ route('employ.store') }}" method="POST">
             {{csrf_field()}}
 
             <div class="form-group">
-              <label for="distributor">Name</label>
-              <input name="nama_distributor" type="text" class="form-control" id="distributor" aria-describedby="distributor" placeholder="Name" >
+              <label for="distributor">First Name</label>
+              <input name="first_name" type="text" class="form-control" id="distributor" aria-describedby="distributor" placeholder="First Name" >
             </div>
             <div class="form-group">
-              <label for="distributor">Addres</label>
-              <input name="alamat" type="text" class="form-control" id="distributor" aria-describedby="distributor" placeholder="Addres" >
+              <label for="distributor">Last Name</label>
+              <input name="last_name" type="text" class="form-control" id="distributor" aria-describedby="distributor" placeholder="Last Name" >
             </div>
             <div class="form-group">
-              <label for="distributor">No Hp</label>
-              <input name="no_hp" type="text" class="form-control" id="distributor" aria-describedby="distributor" placeholder="Number hp" >
+              <label for="company">company</label>
+              <div class="form-group">
+                <strong>Nama Company:</strong>
+                <select class="form-control " name="company">
+                  <option selected disable value="">Pilih company</option>
+                  @foreach ($company as $i)
+                      <option value="{{ $i->id }}">{{ $i->nama }}</option>
+                  @endforeach
+                </select>
+            </div>
+            </div>
+            <div class="form-group">
+              <label for="distributor">Email</label>
+              <input name="email" type="text" class="form-control" id="distributor" aria-describedby="distributor" placeholder="Email" >
+            </div>
+            <div class="form-group">
+              <label for="distributor">Phone</label>
+              <input name="phone" type="text" class="form-control" id="distributor" aria-describedby="distributor" placeholder="Phone" >
             </div>
             
           </div>
@@ -69,22 +85,26 @@
                 <thead >
                   <tr>            
                     
-                    <th scope="col">Nama Distributor</th>
-                    <th scope="col">Alamat</th>
-                    <th scope="col">Nomor Hp</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>        
                 <tbody>
-                    @foreach ($datadistributor as $distributor) 
+                    @foreach ($data as $employ) 
                   <tr>  
                   
-                    <td>{{$distributor->nama_distributor}}</td>
-                    <td>{{$distributor->alamat}}</td>
-                    <td>{{$distributor->no_hp}}</td>
+                    <td>{{$employ->first_name}}</td>
+                    <td>{{$employ->last_name}}</td>
+                    <td>{{$employ->nama}}</td>
+                    <td>{{$employ->email}}</td>
+                    <td>{{$employ->phone}}</td>
                     <td>
-                    <form action="{{ route('distributor.destroy',$distributor->id) }}" method="POST">
-                        <a class="btn btn-primary" href="{{ route('distributor.edit',$distributor->id) }}">Edit</a>
+                    <form action="{{ route('employ.destroy',$employ->id) }}" method="POST">
+                        <a class="btn btn-primary" href="{{ route('employ.edit',$employ->id) }}">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Data akan di hapus');">Delete</button>
